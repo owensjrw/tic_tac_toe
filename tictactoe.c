@@ -1,22 +1,17 @@
 /*
-
 1 | 2 | 3
 ---------
 4 | 5 | 6     << is the setup of the board
 ---------
 7 | 8 | 9
-
 Enter one number, one player at a time
-
 Example:
 1       << This would be Player 1
 2       << This would be Player 2
 5       << This would be Player 1
 3       << This would be Player 2
 9       << This would be Player 1
-
 The above example would run the program with Player 1 as a winner.
-
 Created by William R. Owens "owensjrw", An old dog tring to learn a new trick.
 */
 
@@ -30,6 +25,7 @@ int main (void) {
   short squares_used = 0;
   short player = 1;
   char square;
+  int throwaway = 0;
 
 //Start game.
   for(short win = 0; win != 1;) {
@@ -43,8 +39,13 @@ int main (void) {
 
 //Get input from players
     printf("Player %d what square do you want? ", player);
-    fflush(stdin);  // Was an attempt to flush the stdin buffer
-    scanf(" %1c", &square); // ?? How to fix ability to cheat ??
+    //Loop to get input from player to ensure player cannot cheat
+    while((throwaway < 1) || (throwaway >9)){
+      printf("You must choose one open square \n");
+      scanf("%i", &throwaway);
+    }
+    square = throwaway + '0';  //Converts thowaway int to char
+    throwaway = 0;  //Resets throwaway to keep loop from being foreverloop
     puts("\n");
 
 //Check for valid input
