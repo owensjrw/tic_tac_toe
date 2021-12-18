@@ -30,6 +30,7 @@ int main (void) {
   short squares_used = 0;
   short player = 1;
   char square;
+  int throwaway = 0;
 
 //Start game.
   for(short win = 0; win != 1;) {
@@ -43,8 +44,8 @@ int main (void) {
 
 //Get input from players
     printf("Player %d what square do you want? ", player);
-    fflush(stdin);  // Was an attempt to flush the stdin buffer
-    scanf(" %1c", &square); // ?? How to fix ability to cheat ??
+    for(throwaway; (throwaway > 0) && (throwaway < 9); scanf("%i", &throwaway)){}
+    square = atoi(throwaway);
     puts("\n");
 
 //Check for valid input
