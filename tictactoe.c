@@ -38,6 +38,7 @@ int main (void) {
     printf("%c | %c | %c\n", tictactoe_board[6],tictactoe_board[7],tictactoe_board[8]);
 
 //Get input from players
+    input: //Label for loopback if square is taken or square does not exist
     printf("Player %d what square do you want? ", player);
     //Loop to get input from player to ensure player cannot cheat
     while((throwaway < 1) || (throwaway >9)){
@@ -51,12 +52,14 @@ int main (void) {
 //Check for valid input
     if((square < '1') || (square > '9')) {
       puts("Square does not exist!\nPlease try again\n");
+      goto input; //Send back to input
       }
 
 //Check is square is used or add player token to square.
     if((square >= '1') && (square <= '9')) {
       if(tictactoe_board[square - ASCII_ONE] == 'O' || tictactoe_board[square - ASCII_ONE] == 'X') {
         puts("That square is already taken, please choose again.\n");
+        goto input; //Send back to input
       } else if(player == 1) {
         tictactoe_board[square - ASCII_ONE] = 'X';
         squares_used++;
