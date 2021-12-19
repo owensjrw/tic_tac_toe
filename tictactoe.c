@@ -37,10 +37,12 @@ int main()
             break;
         }
         
+        int is_num;
         do {
             printf("Player %d what square do you want? ", player);
-            scanf(" %i", &input);
-        } while (input < 1 || input > 9);
+            int is_num = scanf(" %d", &input);
+            while(getchar() != '\n');
+        } while (is_num != 1 && (input < 1 || input > 9));
         input--;
         
         if (board[input] == 'X' || board[input] == 'O') {
