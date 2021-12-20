@@ -13,6 +13,7 @@ Example:
 9       << This would be Player 1
 The above example would run the program with Player 1 as a winner.
 Created by William R. Owens "owensjrw", An old dog tring to learn a new trick.
+Edits and collaboration with Moriarty1982.
 */
 
 #include <stdio.h>
@@ -40,9 +41,9 @@ int main()
         int is_num;
         do {
             printf("Player %d what square do you want? ", player);
-            int is_num = scanf(" %d", &input);
+            is_num = scanf(" %d", &input);
             while(getchar() != '\n');
-        } while (is_num != 1 && (input < 1 || input > 9));
+        } while (is_num != 1 || (input < 1 || input > 9));
         input--;
         
         if (board[input] == 'X' || board[input] == 'O') {
