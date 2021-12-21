@@ -1,9 +1,8 @@
 # tic_tac_toe
-Game of Tic Tac Toe with no user defined functions
+Game of Tic Tac Toe with no user defined functions:
 
-In the code the scanf(" %1c", &square) allows a player to cheat by entering two or more digits.
-The digits carried past the first are subsequently used in the iterations of loops.
+The requirements of no user defined functions has been met.
 
-We cannot build a user defined function. 
+Users cannot cheat by typing digits larger than 9 to take the other players turn, due to stdio buffer not having been emptied.
 
-Task to solve how to protect against the possibily of cheeting.
+Moriarty1982 did an awesome job on the optimisation of the program.
